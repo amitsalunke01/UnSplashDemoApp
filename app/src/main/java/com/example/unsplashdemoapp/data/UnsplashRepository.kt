@@ -5,5 +5,5 @@ import javax.inject.Inject
 import javax.inject.Singleton
 
 @Singleton
-class UsplashRepository @Inject constructor(private val unsplashApi: UnsplashApi) {
+class UnsplashRepository @Inject constructor(private val unsplashApi: UnsplashApi) {
 }
