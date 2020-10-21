@@ -1,5 +1,6 @@
 package com.example.unsplashdemoapp.api
 
+
 import com.example.unsplashdemoapp.BuildConfig
 import retrofit2.http.GET
 import retrofit2.http.Headers
@@ -12,7 +13,7 @@ interface UnsplashApi {
         const val CLIENT_ID = BuildConfig.UNSPLASH_ACCESS_KEY
     }
 
-    @Headers("Accept-Version:v1","Authorization: Client-ID $CLIENT_ID")
+    @Headers("Accept-Version:v1","Authorization:Client-ID $CLIENT_ID")
     @GET("search/photo")
     suspend fun searchPhotos(
         @Query("query") query: String,
