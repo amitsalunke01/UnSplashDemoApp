@@ -3,7 +3,7 @@ package com.example.unsplashdemoapp.api
 import com.example.unsplashdemoapp.data.UnsplashPhoto
 
 data class UnsplashResponse(
-    val result: List<UnsplashPhoto>
+    val results: List<UnsplashPhoto>
 )
 
 /*
