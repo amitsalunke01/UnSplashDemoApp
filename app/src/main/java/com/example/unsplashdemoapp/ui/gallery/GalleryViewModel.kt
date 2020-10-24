@@ -11,7 +11,7 @@ import com.example.unsplashdemoapp.data.UnsplashRepository
 class GalleryViewModel @ViewModelInject constructor(private val repository: UnsplashRepository) :
     ViewModel() {
     companion object {
-        private const val DEFAULT_QUERY = "cats"
+        private const val DEFAULT_QUERY = "motorcycle"
     }
 
     private val currentQuery = MutableLiveData(DEFAULT_QUERY)

@@ -20,7 +20,7 @@ object AppModule {
             .baseUrl(UnsplashApi.BASE_URL)
             .addConverterFactory(GsonConverterFactory.create())
             .build()
-    //.create(UnsplashApi::class.java)
+
 
     @Provides
     @Singleton
