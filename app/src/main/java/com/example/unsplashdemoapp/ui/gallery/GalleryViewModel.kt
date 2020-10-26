@@ -1,5 +1,6 @@
 package com.example.unsplashdemoapp.ui.gallery
 
+import android.util.Log
 import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -17,6 +18,7 @@ class GalleryViewModel @ViewModelInject constructor(private val repository: Unsp
     private val currentQuery = MutableLiveData(DEFAULT_QUERY)
 
     val photos = currentQuery.switchMap { it ->
+        Log.e("ViewModel", "switch map triggered" + currentQuery.value)
         repository.getSearchResults(it).cachedIn(viewModelScope)
     }
 
