@@ -13,7 +13,7 @@ import com.example.unsplashdemoapp.R
 import com.example.unsplashdemoapp.data.UnsplashPhoto
 import com.example.unsplashdemoapp.databinding.ItemUsplashPhotoBinding
 
-class UnsplashPhotoAdapter :
+class UnsplashPhotoAdapter(private val listener: OnItemClickListener) :
     PagingDataAdapter<UnsplashPhoto, UnsplashPhotoAdapter.PhotoViewHolder>(PHOTO_COMPARATOR) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PhotoViewHolder {
@@ -30,9 +30,21 @@ class UnsplashPhotoAdapter :
         }
     }
 
-    class PhotoViewHolder(private val binding: ItemUsplashPhotoBinding) :
+    inner class PhotoViewHolder(private val binding: ItemUsplashPhotoBinding) :
         RecyclerView.ViewHolder(binding.root) //each inflated ItemLayout
     {
+        init {
+            binding.root.setOnClickListener {
+                val position = bindingAdapterPosition
+                if (position != RecyclerView.NO_POSITION) {//during animation there are chances we get no proper index
+                    val item = getItem(position)
+                    if (item != null) {
+                        listener.onItemClick(item)
+                    }
+                }
+            }
+        }
+
         fun bind(photo: UnsplashPhoto) {
             binding.apply {
                 //textViewUserName =
@@ -45,6 +57,10 @@ class UnsplashPhotoAdapter :
                 textViewUserName.text = photo.user.username
             }
         }
+    }
+
+    interface OnItemClickListener {
+        fun onItemClick(photo: UnsplashPhoto)
     }
 
     companion object {
