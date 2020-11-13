@@ -45,6 +45,18 @@ class UnsplashPhotoAdapter(private val listener: OnItemClickListener) :
             }
         }
 
+
+
+
+
+
+
+
+
+
+
+
+
         fun bind(photo: UnsplashPhoto) {
             binding.apply {
                 //textViewUserName =
